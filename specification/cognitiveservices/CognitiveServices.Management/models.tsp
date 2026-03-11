@@ -5,6 +5,7 @@ import "@azure-tools/typespec-azure-resource-manager";
 
 using TypeSpec.Rest;
 using TypeSpec.Http;
+using Azure.Core;
 using Azure.ResourceManager;
 using Azure.ResourceManager.Foundations;
 
@@ -30,8 +31,10 @@ union SkuTier {
 /**
  * Gets the status of the cognitive services account at the time the operation was called.
  */
+@lroStatus
 union ProvisioningState {
   string,
+  ResourceProvisioningState,
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Request has been accepted for processing"
   Accepted: "Accepted",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Resource is being created"
@@ -40,12 +43,6 @@ union ProvisioningState {
   Deleting: "Deleting",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "CognitiveServices-specific: account is being moved between regions"
   Moving: "Moving",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Provisioning has failed"
-  Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Provisioning completed successfully"
-  Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Provisioning was canceled by the user"
-  Canceled: "Canceled",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "CognitiveServices-specific: DNS records are being resolved during account creation"
   ResolvingDNS: "ResolvingDNS",
 }
@@ -279,8 +276,10 @@ union HostingModel {
 /**
  * Gets the status of the resource at the time the operation was called.
  */
+@lroStatus
 union DeploymentProvisioningState {
   string,
+  ResourceProvisioningState,
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Deployment request has been accepted for processing"
   Accepted: "Accepted",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Deployment is being created"
@@ -289,14 +288,8 @@ union DeploymentProvisioningState {
   Deleting: "Deleting",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "CognitiveServices-specific: deployment is being moved"
   Moving: "Moving",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Deployment provisioning has failed"
-  Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Deployment provisioning completed successfully"
-  Succeeded: "Succeeded",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "CognitiveServices-specific: deployment has been disabled"
   Disabled: "Disabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Deployment provisioning was canceled"
-  Canceled: "Canceled",
 }
 
 /**
@@ -360,8 +353,10 @@ union DeploymentState {
 /**
  * Gets the status of the resource at the time the operation was called.
  */
+@lroStatus
 union CommitmentPlanProvisioningState {
   string,
+  ResourceProvisioningState,
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Commitment plan request has been accepted for processing"
   Accepted: "Accepted",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Commitment plan is being created"
@@ -370,19 +365,15 @@ union CommitmentPlanProvisioningState {
   Deleting: "Deleting",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "CognitiveServices-specific: commitment plan is being moved"
   Moving: "Moving",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Commitment plan provisioning has failed"
-  Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Commitment plan provisioning completed successfully"
-  Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Commitment plan provisioning was canceled"
-  Canceled: "Canceled",
 }
 
 /**
  * Gets the status of the resource at the time the operation was called.
  */
+@lroStatus
 union EncryptionScopeProvisioningState {
   string,
+  ResourceProvisioningState,
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Encryption scope request has been accepted for processing"
   Accepted: "Accepted",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Encryption scope is being created"
@@ -391,12 +382,6 @@ union EncryptionScopeProvisioningState {
   Deleting: "Deleting",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "CognitiveServices-specific: encryption scope is being moved"
   Moving: "Moving",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Encryption scope provisioning has failed"
-  Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Encryption scope provisioning completed successfully"
-  Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Encryption scope provisioning was canceled"
-  Canceled: "Canceled",
 }
 
 /**
@@ -852,14 +837,10 @@ union CapabilityHostKind {
 /**
  * Provisioning state of capability host.
  */
+@lroStatus
 union CapabilityHostProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Capability host provisioning succeeded"
-  Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Capability host provisioning failed"
-  Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Capability host provisioning was canceled"
-  Canceled: "Canceled",
+  ResourceProvisioningState,
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Capability host is being created"
   Creating: "Creating",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Capability host is being updated"
@@ -1056,6 +1037,7 @@ union IdentityManagementType {
 /**
  * Represents the provisioning state of an identity resource.
  */
+@lroStatus
 union IdentityProvisioningState {
   string,
 
@@ -1132,6 +1114,7 @@ union TrafficRoutingProtocol {
 /**
  * Provisioning state of an agentic application.
  */
+@lroStatus
 union AgenticApplicationProvisioningState {
   string,
 
@@ -1260,6 +1243,7 @@ union AgentDeploymentType {
 /**
  * Provisioning state of an agentic deployment, as an Azure resource.
  */
+@lroStatus
 union AgentDeploymentProvisioningState {
   string,
 

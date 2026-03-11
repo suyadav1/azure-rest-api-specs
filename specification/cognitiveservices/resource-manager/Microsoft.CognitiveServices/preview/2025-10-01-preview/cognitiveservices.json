@@ -10782,15 +10782,18 @@
         "values": [
           {
             "name": "Succeeded",
-            "value": "Succeeded"
+            "value": "Succeeded",
+            "description": "Resource has been created."
           },
           {
             "name": "Failed",
-            "value": "Failed"
+            "value": "Failed",
+            "description": "Resource creation failed."
           },
           {
             "name": "Canceled",
-            "value": "Canceled"
+            "value": "Canceled",
+            "description": "Resource creation was canceled."
           },
           {
             "name": "Creating",
@@ -11157,18 +11160,33 @@
       "type": "string",
       "description": "Gets the status of the resource at the time the operation was called.",
       "enum": [
+        "Succeeded",
+        "Failed",
+        "Canceled",
         "Accepted",
         "Creating",
         "Deleting",
-        "Moving",
-        "Failed",
-        "Succeeded",
-        "Canceled"
+        "Moving"
       ],
       "x-ms-enum": {
         "name": "CommitmentPlanProvisioningState",
         "modelAsString": true,
         "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Resource has been created."
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Resource creation failed."
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Resource creation was canceled."
+          },
           {
             "name": "Accepted",
             "value": "Accepted"
@@ -11184,18 +11202,6 @@
           {
             "name": "Moving",
             "value": "Moving"
-          },
-          {
-            "name": "Failed",
-            "value": "Failed"
-          },
-          {
-            "name": "Succeeded",
-            "value": "Succeeded"
-          },
-          {
-            "name": "Canceled",
-            "value": "Canceled"
           }
         ]
       }
@@ -12732,19 +12738,34 @@
       "type": "string",
       "description": "Gets the status of the resource at the time the operation was called.",
       "enum": [
+        "Succeeded",
+        "Failed",
+        "Canceled",
         "Accepted",
         "Creating",
         "Deleting",
         "Moving",
-        "Failed",
-        "Succeeded",
-        "Disabled",
-        "Canceled"
+        "Disabled"
       ],
       "x-ms-enum": {
         "name": "DeploymentProvisioningState",
         "modelAsString": true,
         "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Resource has been created."
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Resource creation failed."
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Resource creation was canceled."
+          },
           {
             "name": "Accepted",
             "value": "Accepted"
@@ -12762,20 +12783,8 @@
             "value": "Moving"
           },
           {
-            "name": "Failed",
-            "value": "Failed"
-          },
-          {
-            "name": "Succeeded",
-            "value": "Succeeded"
-          },
-          {
             "name": "Disabled",
             "value": "Disabled"
-          },
-          {
-            "name": "Canceled",
-            "value": "Canceled"
           }
         ]
       }
@@ -13025,18 +13034,33 @@
       "type": "string",
       "description": "Gets the status of the resource at the time the operation was called.",
       "enum": [
+        "Succeeded",
+        "Failed",
+        "Canceled",
         "Accepted",
         "Creating",
         "Deleting",
-        "Moving",
-        "Failed",
-        "Succeeded",
-        "Canceled"
+        "Moving"
       ],
       "x-ms-enum": {
         "name": "EncryptionScopeProvisioningState",
         "modelAsString": true,
         "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Resource has been created."
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Resource creation failed."
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Resource creation was canceled."
+          },
           {
             "name": "Accepted",
             "value": "Accepted"
@@ -13052,18 +13076,6 @@
           {
             "name": "Moving",
             "value": "Moving"
-          },
-          {
-            "name": "Failed",
-            "value": "Failed"
-          },
-          {
-            "name": "Succeeded",
-            "value": "Succeeded"
-          },
-          {
-            "name": "Canceled",
-            "value": "Canceled"
           }
         ]
       }
@@ -14832,19 +14844,34 @@
       "type": "string",
       "description": "Gets the status of the cognitive services account at the time the operation was called.",
       "enum": [
+        "Succeeded",
+        "Failed",
+        "Canceled",
         "Accepted",
         "Creating",
         "Deleting",
         "Moving",
-        "Failed",
-        "Succeeded",
-        "Canceled",
         "ResolvingDNS"
       ],
       "x-ms-enum": {
         "name": "ProvisioningState",
         "modelAsString": true,
         "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Resource has been created."
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Resource creation failed."
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Resource creation was canceled."
+          },
           {
             "name": "Accepted",
             "value": "Accepted"
@@ -14860,18 +14887,6 @@
           {
             "name": "Moving",
             "value": "Moving"
-          },
-          {
-            "name": "Failed",
-            "value": "Failed"
-          },
-          {
-            "name": "Succeeded",
-            "value": "Succeeded"
-          },
-          {
-            "name": "Canceled",
-            "value": "Canceled"
           },
           {
             "name": "ResolvingDNS",
