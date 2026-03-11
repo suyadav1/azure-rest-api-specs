@@ -1,17 +1,24 @@
 import "@azure-tools/typespec-client-generator-core";
 import "@azure-tools/typespec-azure-resource-manager";
+import "@typespec/rest";
 import "./ManagedCluster.tsp";
 import "./AgentPoolModels.tsp";
 
 using Azure.ClientGenerator.Core;
 using Microsoft.ContainerService;
 using Azure.ResourceManager;
+using TypeSpec.Rest;
+
+namespace Microsoft.ContainerService;
 
 model AgentPoolManagedClusterAgentPoolProfileProperties {
   ...ManagedClusterAgentPoolProfileProperties;
 }
 
-@@clientName(AgentPoolManagedClusterAgentPoolProfileProperties.type, "type_properties_type", "python");
+@@clientName(AgentPoolManagedClusterAgentPoolProfileProperties.type,
+  "type_properties_type",
+  "python"
+);
 
 @parentResource(ManagedCluster)
 model AgentPoolCustomize
@@ -33,43 +40,54 @@ model AgentPoolCustomize
 // =============================================================================
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(ManagedClusterAccessProfile.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(ManagedClusterAccessProfile.properties
+);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(AgentPoolAvailableVersions.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(AgentPoolAvailableVersions.properties
+);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(RunCommandResult.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(RunCommandResult.properties
+);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(ManagedCluster.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(ManagedCluster.properties);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(ManagedClusterUpgradeProfile.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(ManagedClusterUpgradeProfile.properties
+);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(MaintenanceConfiguration.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(MaintenanceConfiguration.properties
+);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(AgentPool.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(AgentPool.properties);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(AgentPoolUpgradeProfile.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(AgentPoolUpgradeProfile.properties
+);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(PrivateEndpointConnection.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(Microsoft.ContainerService.PrivateEndpointConnection.properties
+);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(Snapshot.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(Microsoft.ContainerService.Snapshot.properties
+);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(ManagedClusterSnapshot.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(Microsoft.ContainerService.ManagedClusterSnapshot.properties
+);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(TrustedAccessRoleBinding.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(Microsoft.ContainerService.TrustedAccessRoleBinding.properties
+);
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
-@@Legacy.flattenProperty(LoadBalancer.properties);
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(Microsoft.ContainerService.LoadBalancer.properties
+);
 
 // =============================================================================
 // Operation parameter renaming
