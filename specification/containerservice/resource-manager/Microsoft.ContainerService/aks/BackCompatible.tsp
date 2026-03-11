@@ -1,7 +1,30 @@
 import "@azure-tools/typespec-client-generator-core";
+import "@azure-tools/typespec-azure-resource-manager";
+import "./ManagedCluster.tsp";
+import "./AgentPoolModels.tsp";
 
 using Azure.ClientGenerator.Core;
 using Microsoft.ContainerService;
+using Azure.ResourceManager;
+
+model AgentPoolManagedClusterAgentPoolProfileProperties {
+  ...ManagedClusterAgentPoolProfileProperties;
+}
+
+@@clientName(AgentPoolManagedClusterAgentPoolProfileProperties.type, "type_properties_type", "python");
+
+@parentResource(ManagedCluster)
+model AgentPoolCustomize
+  is Azure.ResourceManager.ProxyResource<AgentPoolManagedClusterAgentPoolProfileProperties> {
+  ...ResourceNameParameter<
+    Resource = AgentPool,
+    KeyName = "agentPoolName",
+    SegmentName = "agentPools",
+    NamePattern = "^[a-z][a-z0-9]{0,11}$"
+  >;
+}
+
+@@alternateType(AgentPool, AgentPoolCustomize, "python");
 
 // =============================================================================
 // Property flattening for SDK backward compatibility
